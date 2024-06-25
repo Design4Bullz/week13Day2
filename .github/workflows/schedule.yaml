@@ -2,7 +2,7 @@ name: Scheduled Workflow
 
 on:
   schedule:
-    - cron: '10 0 * * *' # Runs at midnight every day
+    - cron: "* * * * 1-5" # Runs at midnight every day
 
 jobs:
   build:
@@ -10,9 +10,8 @@ jobs:
     env:
       environment: "dev"
     steps:
-    - name: Checkout Repository
-      uses: actions/checkout@v2
+      - name: Checkout Repository
+        uses: actions/checkout@v2
 
-    - name: Run a Script
-      run: echo "Performing $environment task at $(date)."
-
+      - name: Run a Script
+        run: echo "Performing $environment task at $(date)."
